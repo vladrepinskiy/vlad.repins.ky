@@ -5,10 +5,13 @@
  * It is included in `src/index.html`.
  */
 
-import { StrictMode } from "react";
+import { StrictMode, createElement } from "react";
 import { createRoot } from "react-dom/client";
+import { setup } from "goober";
 import "./global.css";
 import { App } from "./App";
+
+setup(createElement);
 
 const elem = document.getElementById("root")!;
 const app = (
