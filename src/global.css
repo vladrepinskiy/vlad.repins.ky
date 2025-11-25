@@ -9,10 +9,22 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
 body {
   font-family: var(--font-roboto);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 code,

@@ -1,22 +1,23 @@
 import { styled } from "goober";
 
 export const Home = () => {
-    return (
-        <Page>
-            <Title>Building thoughtful web experiences.</Title>
-            <Lead>
-                This project uses Bun for bundling and goober for lightweight CSS-in-JS, so styles stay
-                close to the components they affect.
-            </Lead>
-        </Page>
-    );
+  return (
+    <Page>
+      <Title>Building thoughtful web experiences.</Title>
+      <Lead>
+        This project uses Bun for bundling and goober for lightweight CSS-in-JS, so styles stay
+        close to the components they affect.
+      </Lead>
+    </Page>
+  );
 };
 
 const Page = styled("div")`
-  min-height: 100vh;
+  flex: 1;
   padding: 4rem clamp(1.5rem, 4vw, 6rem);
-  background: radial-gradient(circle at top, #1d1d1d 0%, #050505 100%);
-  color: #f5f5f5;
+  background: ${(props) => props.theme.palette.bg};
+  color: ${(props) => props.theme.palette.b80};
+  overflow-y: auto;
 `;
 
 const Title = styled("h1")`
@@ -28,6 +29,7 @@ const Lead = styled("p")`
   font-size: 1.2rem;
   max-width: 42ch;
   line-height: 1.6;
-  color: rgba(245, 245, 245, 0.85);
+  color: ${(props) => props.theme.palette.b80};
+  opacity: 0.85;
 `;
 
