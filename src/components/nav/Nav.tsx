@@ -1,12 +1,18 @@
+import { useToggleTheme } from "@/hooks/useToggleTheme";
 import { styled } from "goober";
 
-export const Nav = () => (
-  <NavBar>
-    <NavLink href="#home">Home</NavLink>
-    <NavLink href="#work">Work</NavLink>
-    <NavLink href="#contact">Contact</NavLink>
-  </NavBar>
-);
+export const Nav = () => {
+  const toggleTheme = useToggleTheme();
+
+  return (
+    <NavBar>
+      <NavLink href="#home">Home</NavLink>
+      <NavLink href="#work">Work</NavLink>
+      <NavLink href="#contact">Contact</NavLink>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+    </NavBar>
+  );
+}
 
 const NavBar = styled("nav")`
   width: 100%;
@@ -14,7 +20,7 @@ const NavBar = styled("nav")`
   display: flex;
   justify-content: flex-end;
   gap: 1.5rem;
-  background: rgba(14, 14, 14, 0.7);
+  background: ${(props) => props.theme.palette.bg};
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;

@@ -1,5 +1,5 @@
 import { styled } from "goober";
-import { Nav } from "./components/Nav";
+import { Nav } from "@/components/nav/Nav";
 
 export const App = () => {
   return (

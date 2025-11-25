@@ -1,22 +1,20 @@
-/**
- * This file is the entry point for the React app, it sets up the root
- * element and renders the App component to the DOM.
- *
- * It is included in `src/index.html`.
- */
-
+import { App } from "@/components/app/App";
+import { ThemeProvider } from "@/context/theme.provider";
+import "@/global.css";
+import { useTheme } from "@/hooks/useTheme";
+import { setup } from "goober";
 import { StrictMode, createElement } from "react";
 import { createRoot } from "react-dom/client";
-import { setup } from "goober";
-import "./global.css";
-import { App } from "./App";
 
-setup(createElement);
+setup(createElement, undefined, useTheme);
 
 const elem = document.getElementById("root")!;
+
 const app = (
   <StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </StrictMode>
 );
 
