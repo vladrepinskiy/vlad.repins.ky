@@ -5,7 +5,7 @@ export const Lab = () => {
     <Page>
       <Title>Lab</Title>
       <Content>
-        <p>Your lab experiments and projects will go here.</p>
+        <p>Coming Soon 🔜</p>
       </Content>
     </Page>
   );
@@ -31,4 +31,3 @@ const Content = styled("div")`
   color: ${(props) => props.theme.palette.text};
   opacity: 0.85;
 `;
-

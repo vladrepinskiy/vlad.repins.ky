@@ -1,38 +1,42 @@
-import { DEFAULT_THEME, THEMES, type ThemeKey } from "@/constants/theme.constant";
+import {
+  DEFAULT_THEME,
+  THEMES,
+  type ThemeKey,
+} from "@/constants/theme.constant";
 import type { Theme } from "@/types/theme.type";
 import { setToLocalStorage } from "@/utils/localstorage.util";
 import { getInitialTheme } from "@/utils/theme.util";
 import { createContext, useState, type ReactNode } from "react";
 
 type ThemeContextType = {
-    theme: Theme;
-    toggleTheme: () => void;
+  theme: Theme;
+  toggleTheme: () => void;
 };
 
 export const ThemeContext = createContext<ThemeContextType>({
-    theme: DEFAULT_THEME,
-    toggleTheme: () => { },
+  theme: DEFAULT_THEME,
+  toggleTheme: () => {},
 });
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [theme, setTheme] = useState<Theme>(getInitialTheme());
+  const [theme, setTheme] = useState<Theme>(getInitialTheme());
 
-    const toggleTheme = () => {
-        const themeEntries = Object.entries(THEMES) as [ThemeKey, Theme][];
-        const currentIndex = themeEntries.findIndex(([, t]) => t === theme);
-        const nextIndex = (currentIndex + 1) % themeEntries.length;
-        const nextEntry = themeEntries[nextIndex];
+  const toggleTheme = () => {
+    const themeEntries = Object.entries(THEMES) as [ThemeKey, Theme][];
+    const currentIndex = themeEntries.findIndex(([, t]) => t === theme);
+    const nextIndex = (currentIndex + 1) % themeEntries.length;
+    const nextEntry = themeEntries[nextIndex];
 
-        if (nextEntry) {
-            const [, newTheme] = nextEntry;
-            setTheme(newTheme);
-            setToLocalStorage("theme", newTheme.key);
-        }
-    };
+    if (nextEntry) {
+      const [, newTheme] = nextEntry;
+      setTheme(newTheme);
+      setToLocalStorage("theme", newTheme.key);
+    }
+  };
 
-    return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    );
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };

@@ -3,10 +3,13 @@ import { styled } from "goober";
 export const Home = () => {
   return (
     <Page>
-      <Title>Building thoughtful web experiences.</Title>
+      <Title>Hello Stranger 👋</Title>
       <Lead>
-        This project uses Bun for bundling and goober for lightweight CSS-in-JS, so styles stay
-        close to the components they affect.
+        I'm a Fast-learning Full Stack Developer with a demonstrated history of
+        experience from across the industry - from pure CS research to
+        self-managed startup projects. Strong engineering culture with a Master
+        of Engineering degree from one of the leading European universities.
+        Love working on relationships, processes and documentation.
       </Lead>
     </Page>
   );
@@ -32,4 +35,3 @@ const Lead = styled("p")`
   color: ${(props) => props.theme.palette.text};
   opacity: 0.85;
 `;
-

@@ -13,7 +13,7 @@ export const Nav = () => {
       <NavThemeToggle />
     </NavBar>
   );
-}
+};
 
 const NavBar = styled("nav")`
   width: 100%;
@@ -42,5 +42,3 @@ const NavLink = styled(Link)`
   padding-bottom: 0.2rem;
   text-decoration: none;
 `;
-
-

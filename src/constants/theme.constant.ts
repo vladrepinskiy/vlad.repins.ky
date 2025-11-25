@@ -1,39 +1,39 @@
 import type { Theme } from "@/types/theme.type";
 
 const FONT_SIZES = {
-    xs: "0.75rem",
-    sm: "0.875rem",
-    md: "1rem",
-    lg: "1.25rem",
-    xl: "1.5rem",
-    xxl: "2rem",
+  xs: "0.75rem",
+  sm: "0.875rem",
+  md: "1rem",
+  lg: "1.25rem",
+  xl: "1.5rem",
+  xxl: "2rem",
 };
 
 export const LIGHT_THEME: Theme = {
-    key: "light",
-    icon: "☀️",
-    palette: {
-        bg: "#ffffff",
-        text: "#1a1a1a",
-        accent: "#f5a623",
-    },
-    fontSizes: FONT_SIZES,
+  key: "light",
+  icon: "☀️",
+  palette: {
+    bg: "#ffffff",
+    text: "#1a1a1a",
+    accent: "#f5a623",
+  },
+  fontSizes: FONT_SIZES,
 };
 
 export const DARK_THEME: Theme = {
-    key: "dark",
-    icon: "🌙",
-    palette: {
-        bg: "#1a1a1a",
-        text: "#f5f5f5",
-        accent: "#ffbf69",
-    },
-    fontSizes: FONT_SIZES,
+  key: "dark",
+  icon: "🌙",
+  palette: {
+    bg: "#1a1a1a",
+    text: "#f5f5f5",
+    accent: "#ffbf69",
+  },
+  fontSizes: FONT_SIZES,
 };
 
 export const THEMES = {
-    LIGHT: LIGHT_THEME,
-    DARK: DARK_THEME,
+  LIGHT: LIGHT_THEME,
+  DARK: DARK_THEME,
 } as const;
 
 export const DEFAULT_THEME: Theme = LIGHT_THEME;
