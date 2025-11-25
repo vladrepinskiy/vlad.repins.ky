@@ -1,7 +1,8 @@
-import { darkTheme, DEFAULT_THEME, lightTheme } from "@/constants/theme.constant";
+import { DEFAULT_THEME, THEMES, type ThemeKey } from "@/constants/theme.constant";
 import type { Theme } from "@/types/theme.type";
-import { getFromLocalStorage, setToLocalStorage } from "@/utils/localstorage.util";
-import { createContext, useEffect, useState, type ReactNode } from "react";
+import { setToLocalStorage } from "@/utils/localstorage.util";
+import { getInitialTheme } from "@/utils/theme.util";
+import { createContext, useState, type ReactNode } from "react";
 
 type ThemeContextType = {
     theme: Theme;
@@ -14,18 +15,20 @@ export const ThemeContext = createContext<ThemeContextType>({
 });
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [theme, setTheme] = useState<Theme>(getFromLocalStorage("theme") || DEFAULT_THEME);
+    const [theme, setTheme] = useState<Theme>(getInitialTheme());
 
     const toggleTheme = () => {
-        const newTheme = theme === lightTheme ? darkTheme : lightTheme;
-        setTheme(newTheme);
-        setToLocalStorage("theme", newTheme);
-    };
+        const themeEntries = Object.entries(THEMES) as [ThemeKey, Theme][];
+        const currentIndex = themeEntries.findIndex(([, t]) => t === theme);
+        const nextIndex = (currentIndex + 1) % themeEntries.length;
+        const nextEntry = themeEntries[nextIndex];
 
-    useEffect(() => {
-        console.log("theme changed", theme);
-        setToLocalStorage("theme", theme);
-    }, [theme]);
+        if (nextEntry) {
+            const [, newTheme] = nextEntry;
+            setTheme(newTheme);
+            setToLocalStorage("theme", newTheme.key);
+        }
+    };
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
