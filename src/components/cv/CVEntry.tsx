@@ -1,5 +1,6 @@
 import type { CVEntry } from "@/types/cv.types";
 import { styled } from "goober";
+import { CVEntryStack } from "./CvEntryStack";
 
 export const CvEntry = ({ entry }: { entry: CVEntry }) => {
   return (
@@ -8,9 +9,10 @@ export const CvEntry = ({ entry }: { entry: CVEntry }) => {
         {entry.title}, {entry.company}
       </Heading>
       <Subtitle>
-        {entry.startDate} - {entry.endDate}
+        {entry.startDate} - {entry.endDate} • {entry.location}
       </Subtitle>
       <Body>{entry.description}</Body>
+      <CVEntryStack stack={entry.technologies} />
     </Container>
   );
 };
