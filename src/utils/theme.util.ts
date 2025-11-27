@@ -1,6 +1,6 @@
 import type { ThemeKey } from "@/constants/theme.constant";
 import { getFromLocalStorage } from "./localstorage.util";
-import type { Theme } from "@/types/theme.type";
+import type { Theme } from "@/types/theme.types";
 import { DEFAULT_THEME, THEMES } from "@/constants/theme.constant";
 
 export const getInitialTheme = (): Theme => {

@@ -3,7 +3,7 @@ import {
   THEMES,
   type ThemeKey,
 } from "@/constants/theme.constant";
-import type { Theme } from "@/types/theme.type";
+import type { Theme } from "@/types/theme.types";
 import { setToLocalStorage } from "@/utils/localstorage.util";
 import { getInitialTheme } from "@/utils/theme.util";
 import { createContext, useState, type ReactNode } from "react";

@@ -1,4 +1,4 @@
-import type { Theme } from "@/types/theme.type";
+import type { Theme } from "@/types/theme.types";
 
 const FONT_SIZES = {
   xs: "0.75rem",

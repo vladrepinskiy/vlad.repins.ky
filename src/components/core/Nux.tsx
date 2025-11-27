@@ -1,10 +1,11 @@
-import { Nux } from "@/components/core/Nux";
 import { styled } from "goober";
+import constructionImage from "../../../public/construction.jpg";
 
-export const Lab = () => {
+export const Nux = () => {
   return (
     <Page>
-      <Nux />
+      <Title>Work in Progress</Title>
+      <Image src={constructionImage} alt="Eiffel Tower under construction" />
     </Page>
   );
 };
@@ -20,4 +21,14 @@ const Page = styled("div")`
   align-items: center;
   justify-content: center;
   text-align: center;
+`;
+
+const Title = styled("h1")`
+  font-size: ${(props) => props.theme.fontSizes.xl};
+  margin-bottom: 1rem;
+`;
+
+const Image = styled("img")`
+  max-width: 500px;
+  height: auto;
 `;

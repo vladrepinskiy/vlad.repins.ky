@@ -3,10 +3,16 @@ import { ThemeProvider } from "@/context/theme.provider";
 import "@/global.css";
 import { useTheme } from "@/hooks/useTheme";
 import { setup } from "goober";
+import { shouldForwardProp } from "goober/should-forward-prop";
 import { StrictMode, createElement } from "react";
 import { createRoot } from "react-dom/client";
 
-setup(createElement, undefined, useTheme);
+setup(
+  createElement,
+  undefined,
+  useTheme,
+  shouldForwardProp((prop) => !prop.startsWith("$")),
+);
 
 const elem = document.getElementById("root")!;
 
