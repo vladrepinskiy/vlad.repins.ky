@@ -3,7 +3,7 @@ import { styled } from "goober";
 export const Nux = () => {
   return (
     <Page>
-      <Title>Work in Progress 🚧</Title>
+      <Title>Work in Progress</Title>
     </Page>
   );
 };

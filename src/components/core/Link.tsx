@@ -9,6 +9,7 @@ export const Link = ({ url }: { url: string }) => {
 };
 
 const LinkWrapper = styled("a")`
+  width: fit-content;
   font-size: ${(props) => props.theme.fontSizes.md};
   color: ${(props) => props.theme.palette.text};
   opacity: 0.7;

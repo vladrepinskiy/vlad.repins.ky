@@ -1,4 +1,3 @@
-import { Nux } from "@/components/nux/Nux";
 import { WORK_EXPERIENCE } from "@/constants/cv.constant";
 import { styled } from "goober";
 import { CVEntryList } from "../cv/CVEntryList";

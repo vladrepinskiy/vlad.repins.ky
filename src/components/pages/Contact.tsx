@@ -1,4 +1,4 @@
-import { Nux } from "@/components/nux/Nux";
+import { Nux } from "@/components/core/Nux";
 import { styled } from "goober";
 
 export const Contact = () => {
