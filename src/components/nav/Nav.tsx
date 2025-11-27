@@ -8,7 +8,7 @@ export const Nav = () => {
   const isActive = (path: string) => location === path;
 
   return (
-    <NavBar>
+    <Sidebar>
       <NavLinks>
         <NavLink to="/" $active={isActive("/")}>
           Home
@@ -26,27 +26,34 @@ export const Nav = () => {
           About
         </NavLink>
       </NavLinks>
-      <NavThemeToggle />
-    </NavBar>
+      <ThemeToggleWrapper>
+        <NavThemeToggle />
+      </ThemeToggleWrapper>
+    </Sidebar>
   );
 };
 
-const NavBar = styled("nav")`
-  width: 100%;
-  padding: 1rem 2rem;
+const Sidebar = styled("nav")`
+  width: 260px;
+  height: 100vh;
+  padding: 2rem 1.5rem;
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  flex-direction: column;
+  justify-content: space-between;
   background: ${(props) => props.theme.palette.bg};
-  position: sticky;
+  position: fixed;
+  left: 0;
   top: 0;
-  z-index: 10;
+  z-index: 100;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const NavLinks = styled("div")`
-  flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: 1.5rem;
 `;
 
@@ -55,8 +62,22 @@ const NavLink = styled(Link)<{ $active: boolean }>`
   font-size: ${(props) => props.theme.fontSizes.xl};
   letter-spacing: 0.08em;
   color: ${(props) => props.theme.palette.text};
-  padding-bottom: 0.2rem;
+  padding: 0.5rem 0;
+  padding-left: 0.5rem;
   text-decoration: none;
-  border-bottom: ${(props) =>
-    props.$active ? `2px solid ${props.theme.palette.text}` : "none"};
+  border-left: ${(props) =>
+    props.$active
+      ? `3px solid ${props.theme.palette.text}`
+      : "3px solid transparent"};
+  transition: border-left 0.2s ease;
+
+  &:hover {
+    border-left: 3px solid ${(props) => props.theme.palette.text};
+  }
+`;
+
+const ThemeToggleWrapper = styled("div")`
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
 `;

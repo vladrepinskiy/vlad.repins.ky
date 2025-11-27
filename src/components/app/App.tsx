@@ -12,11 +12,13 @@ export const App = () => {
     <Router>
       <AppContainer>
         <Nav />
-        <Route path="/" component={Home} />
-        <Route path="/cv" component={CV} />
-        <Route path="/lab" component={Lab} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/about" component={About} />
+        <ContentArea>
+          <Route path="/" component={Home} />
+          <Route path="/cv" component={CV} />
+          <Route path="/lab" component={Lab} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/about" component={About} />
+        </ContentArea>
       </AppContainer>
     </Router>
   );
@@ -25,6 +27,61 @@ export const App = () => {
 const AppContainer = styled("div")`
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow: hidden;
+`;
+
+const ContentArea = styled("div")`
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 260px;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(
+      to bottom,
+      ${(props) => props.theme.palette.bg} 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 10;
+
+    @media (max-width: 768px) {
+      left: 0;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 260px;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(
+      to top,
+      ${(props) => props.theme.palette.bg} 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 10;
+
+    @media (max-width: 768px) {
+      left: 0;
+    }
+  }
 `;
