@@ -16,11 +16,9 @@ export const CvEntry = ({ entry }: { entry: CVEntry }) => {
 };
 
 const Container = styled("div")`
-  margin-bottom: 3rem;
-  padding: 2rem;
+  padding: 1rem;
   background: ${(props) => props.theme.palette.bg};
   border-radius: 8px;
-  max-width: 512px;
   width: 100%;
   text-align: left;
 `;
