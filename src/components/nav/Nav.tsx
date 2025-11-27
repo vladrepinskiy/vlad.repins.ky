@@ -19,6 +19,12 @@ export const Nav = () => {
         <NavLink to="/lab" data-active={isActive("/lab")}>
           Lab
         </NavLink>
+        <NavLink to="/contact" data-active={isActive("/contact")}>
+          Contact
+        </NavLink>
+        <NavLink to="/about" data-active={isActive("/about")}>
+          About
+        </NavLink>
       </NavLinks>
       <NavThemeToggle />
     </NavBar>
