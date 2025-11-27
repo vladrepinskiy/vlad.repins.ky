@@ -1,11 +1,20 @@
+import { useTheme } from "@/hooks/useTheme";
+import { getImageInvertFilter } from "@/utils/theme.util";
 import { styled } from "goober";
 import constructionImage from "../../../public/construction.jpg";
 
 export const Nux = () => {
+  const theme = useTheme();
+  const imageFilter = getImageInvertFilter(theme);
+
   return (
     <Page>
       <Title>Work in Progress</Title>
-      <Image src={constructionImage} alt="Eiffel Tower under construction" />
+      <Image
+        src={constructionImage}
+        alt="Eiffel Tower under construction"
+        style={{ filter: imageFilter }}
+      />
     </Page>
   );
 };
