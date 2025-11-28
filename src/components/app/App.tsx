@@ -1,22 +1,36 @@
 import { styled } from "goober";
-import { Route, Router } from "wouter";
+import { Route, Router, useLocation } from "wouter";
 import { Sidebar } from "@/components/sidebar/Sidebar";
 import { Home } from "@/components/pages/Home";
 import { CV } from "@/components/pages/CV";
 import { Lab } from "@/components/pages/Lab";
 import { About } from "../pages/About";
+import { RouteTransition } from "@/components/core/RouteTransition";
+import { EdgeBlur } from "@/components/core/EdgeBlur";
+
+const Routes = () => {
+  const [location] = useLocation();
+
+  return (
+    <RouteTransition key={location}>
+      <Route path="/" component={Home} />
+      <Route path="/cv" component={CV} />
+      <Route path="/lab" component={Lab} />
+      <Route path="/about" component={About} />
+    </RouteTransition>
+  );
+};
 
 export const App = () => {
   return (
     <Router>
       <AppContainer>
+        <EdgeBlur direction="top" />
         <Sidebar />
         <ContentArea>
-          <Route path="/" component={Home} />
-          <Route path="/cv" component={CV} />
-          <Route path="/lab" component={Lab} />
-          <Route path="/about" component={About} />
+          <Routes />
         </ContentArea>
+        <EdgeBlur direction="bottom" />
       </AppContainer>
     </Router>
   );
@@ -27,6 +41,7 @@ const AppContainer = styled("div")`
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  background: ${(props) => props.theme.palette.bg};
 `;
 
 const ContentArea = styled("div")`
@@ -38,48 +53,9 @@ const ContentArea = styled("div")`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: ${(props) => props.theme.palette.bg};
 
   @media (max-width: 768px) {
     margin-left: 0;
-  }
-
-  &::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 260px;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(
-      to bottom,
-      ${(props) => props.theme.palette.bg} 0%,
-      transparent 100%
-    );
-    pointer-events: none;
-    z-index: 10;
-
-    @media (max-width: 768px) {
-      left: 0;
-    }
-  }
-
-  &::after {
-    content: "";
-    position: fixed;
-    bottom: 0;
-    left: 260px;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(
-      to top,
-      ${(props) => props.theme.palette.bg} 0%,
-      transparent 100%
-    );
-    pointer-events: none;
-    z-index: 10;
-
-    @media (max-width: 768px) {
-      left: 0;
-    }
   }
 `;
