@@ -38,6 +38,13 @@ const Page = styled("div")`
   overflow-y: auto;
   display: flex;
   justify-content: center;
+
+  /* Adjust height to account for safe areas */
+  @supports (padding: env(safe-area-inset-top)) {
+    min-height: calc(
+      100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
+  }
 `;
 
 const Content = styled("div")`

@@ -58,6 +58,14 @@ const AppContainer = styled("div")`
   flex-direction: row;
   overflow: hidden;
   background: ${(props) => props.theme.palette.bg};
+
+  /* Ensure the background extends into iOS safe areas */
+  @supports (padding: env(safe-area-inset-top)) {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
 `;
 
 const ContentArea = styled("div")`
@@ -70,6 +78,13 @@ const ContentArea = styled("div")`
   flex-direction: column;
   justify-content: center;
   background: ${(props) => props.theme.palette.bg};
+
+  /* Account for safe area padding in parent */
+  @supports (padding: env(safe-area-inset-top)) {
+    height: calc(
+      100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
+  }
 
   @media (max-width: 768px) {
     margin-left: 0;

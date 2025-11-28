@@ -15,6 +15,14 @@ export const getInitialTheme = (): Theme => {
     }
   }
 
+  // Check browser's theme preference
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    return THEMES.DARK;
+  }
+
   return DEFAULT_THEME;
 };
 
