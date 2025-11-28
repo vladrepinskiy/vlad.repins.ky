@@ -28,9 +28,7 @@ const Container = styled("div")`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
   background: ${(props) => props.theme.palette.bg};
-  border-radius: 8px;
   width: 100%;
   text-align: left;
 `;

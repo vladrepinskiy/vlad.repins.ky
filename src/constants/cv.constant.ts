@@ -86,7 +86,6 @@ export const EDUCATION: CVEntry[] = [
       "Part of UCL Ice Club Society - Captain of UCL Yetis C Team and club VP.",
     ],
     location: "London, United Kingdom",
-    link: "https://www.ucl.ac.uk",
   },
   {
     startDate: "2015",
@@ -99,6 +98,5 @@ export const EDUCATION: CVEntry[] = [
       "HMC Independent School in Somerset, England.",
     ],
     location: "Somerset, United Kingdom",
-    link: "https://www.wellington-school.org.uk",
   },
 ];

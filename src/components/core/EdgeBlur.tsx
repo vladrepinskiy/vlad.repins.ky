@@ -2,9 +2,10 @@ import { styled } from "goober";
 
 interface EdgeBlurProps {
   direction: "top" | "bottom";
+  height?: number;
 }
 
-export const EdgeBlur = ({ direction }: EdgeBlurProps) => {
+export const EdgeBlur = ({ direction, height = 100 }: EdgeBlurProps) => {
   // Blur values progression
   const blurLayers = [
     {
@@ -68,7 +69,7 @@ export const EdgeBlur = ({ direction }: EdgeBlurProps) => {
   const gradientDirection = direction === "top" ? "to top" : "to bottom";
 
   return (
-    <BlurContainer $direction={direction}>
+    <BlurContainer $direction={direction} $height={height}>
       {blurLayers.map((layer, index) => (
         <BlurLayer
           key={index}
@@ -85,16 +86,19 @@ export const EdgeBlur = ({ direction }: EdgeBlurProps) => {
   );
 };
 
-const BlurContainer = styled("div")<{ $direction: "top" | "bottom" }>`
+const BlurContainer = styled("div")<{
+  $direction: "top" | "bottom";
+  $height: number;
+}>`
   position: fixed;
   ${(props) => (props.$direction === "top" ? "top: 0;" : "bottom: 0;")}
   left: 260px;
-  right: 0;
-  height: 100px;
+  right: 15px;
+  height: ${(props) => props.$height}px;
   pointer-events: none;
   z-index: 10;
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     left: 0;
   }
 `;

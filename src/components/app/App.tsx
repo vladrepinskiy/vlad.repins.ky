@@ -1,13 +1,15 @@
+import { EdgeBlur } from "@/components/core/EdgeBlur";
+import { RouteTransition } from "@/components/core/RouteTransition";
+import { CV } from "@/components/pages/CV";
+import { Home } from "@/components/pages/Home";
+import { Lab } from "@/components/pages/Lab";
+import { MobilePage } from "@/components/pages/MobilePage";
+import { Sidebar } from "@/components/sidebar/Sidebar";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { styled } from "goober";
 import { Route, Router, useLocation } from "wouter";
 import { useHashLocation } from "wouter/use-hash-location";
-import { Sidebar } from "@/components/sidebar/Sidebar";
-import { Home } from "@/components/pages/Home";
-import { CV } from "@/components/pages/CV";
-import { Lab } from "@/components/pages/Lab";
 import { About } from "../pages/About";
-import { RouteTransition } from "@/components/core/RouteTransition";
-import { EdgeBlur } from "@/components/core/EdgeBlur";
 
 const Routes = () => {
   const [location] = useLocation();
@@ -23,15 +25,28 @@ const Routes = () => {
 };
 
 export const App = () => {
+  const isMobile = useIsMobile();
+
   return (
     <Router hook={useHashLocation}>
       <AppContainer>
-        <EdgeBlur direction="top" />
-        <Sidebar />
-        <ContentArea>
-          <Routes />
-        </ContentArea>
-        <EdgeBlur direction="bottom" />
+        {isMobile && (
+          <>
+            <EdgeBlur direction="top" height={50} />
+            <MobilePage />
+            <EdgeBlur direction="bottom" height={50} />
+          </>
+        )}
+        {!isMobile && (
+          <>
+            <EdgeBlur direction="top" />
+            <Sidebar />
+            <ContentArea>
+              <Routes />
+            </ContentArea>
+            <EdgeBlur direction="bottom" />
+          </>
+        )}
       </AppContainer>
     </Router>
   );
