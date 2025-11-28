@@ -4,7 +4,7 @@ export type CVEntry = {
   company: string;
   title: string;
   description: string[];
-  technologies: string[];
+  stack?: string[];
   location: string;
   link?: string;
 };

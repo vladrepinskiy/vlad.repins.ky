@@ -1,4 +1,4 @@
-import { WORK_EXPERIENCE } from "@/constants/cv.constant";
+import { WORK_EXPERIENCE, EDUCATION } from "@/constants/cv.constant";
 import { styled } from "goober";
 import { Title } from "../core/Typography";
 import { CVEntryList } from "../cv/CVEntryList";
@@ -6,10 +6,19 @@ import { CVEntryList } from "../cv/CVEntryList";
 export const CV = () => {
   return (
     <Page>
-      <TitleWrapper>
-        <Title>Work Experience</Title>
-      </TitleWrapper>
-      <CVEntryList entries={WORK_EXPERIENCE} />
+      <Section id="work-experience">
+        <TitleWrapper>
+          <Title>Work</Title>
+        </TitleWrapper>
+        <CVEntryList entries={WORK_EXPERIENCE} />
+      </Section>
+
+      <Section id="education">
+        <TitleWrapper>
+          <Title>Education</Title>
+        </TitleWrapper>
+        <CVEntryList entries={EDUCATION} />
+      </Section>
     </Page>
   );
 };
@@ -27,10 +36,18 @@ const Page = styled("div")`
   text-align: left;
 `;
 
+const Section = styled("div")`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+  scroll-margin-top: 8rem;
+`;
+
 const TitleWrapper = styled("div")`
   width: 100%;
   max-width: 600px;
   text-align: left;
   margin-bottom: 2rem;
-  margin-left: 2rem;
 `;

@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { styled } from "goober";
+import { useEffect, useState } from "react";
 import { Subtitle } from "../core/Typography";
 
 interface WeatherData {

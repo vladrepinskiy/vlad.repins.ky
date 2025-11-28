@@ -17,7 +17,9 @@ export const CvEntry = ({ entry }: { entry: CVEntry }) => {
         <Body key={index}>{paragraph}</Body>
       ))}
       {entry.link && <Link url={entry.link} />}
-      <CVEntryStack stack={entry.technologies} />
+      {entry.stack && entry.stack.length > 0 && (
+        <CVEntryStack stack={entry.stack} />
+      )}
     </Container>
   );
 };
@@ -26,9 +28,7 @@ const Container = styled("div")`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
   background: ${(props) => props.theme.palette.bg};
-  border-radius: 8px;
   width: 100%;
   text-align: left;
 `;
