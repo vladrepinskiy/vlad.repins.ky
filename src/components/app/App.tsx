@@ -41,6 +41,7 @@ const AppContainer = styled("div")`
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  background: ${(props) => props.theme.palette.bg};
 `;
 
 const ContentArea = styled("div")`
