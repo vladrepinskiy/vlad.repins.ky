@@ -21,7 +21,7 @@ export const Home = () => {
           Strong engineering culture with a Master of Engineering degree from
           one of the leading European universities. Love working on
           relationships, processes and documentation. Since recently, addicted
-          to building products.
+          to shipping things.
         </Body>
         <Body>
           Outside of work, inspired by art, the people that surround me.

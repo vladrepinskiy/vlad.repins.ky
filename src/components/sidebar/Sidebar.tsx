@@ -43,6 +43,9 @@ export const Sidebar = () => {
               LinkedIn
             </SocialLink>
             <SocialLink href="mailto:vladrepinsky@gmail.com">Email</SocialLink>
+            <SocialLink href="https://cal.com/vladrepinsky">
+              Book a call
+            </SocialLink>
           </SocialLinks>
         </SocialSection>
         <SidebarThemeToggle />
