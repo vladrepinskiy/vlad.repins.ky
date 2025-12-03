@@ -12,6 +12,13 @@ export const SidebarLinks = () => {
           GitHub
         </SocialLink>
         <SocialLink
+          href="https://x.com/vladrepinsky"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Twitter
+        </SocialLink>
+        <SocialLink
           href="https://www.linkedin.com/in/vladrepinsky/"
           target="_blank"
           rel="noopener noreferrer"

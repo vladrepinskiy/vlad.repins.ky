@@ -2,6 +2,7 @@ import { SidebarControls } from "@/components/sidebar/SidebarControls";
 import { SidebarLinks } from "@/components/sidebar/SidebarLinks";
 import { SidebarNavigation } from "@/components/sidebar/SidebarNavigation";
 import { styled } from "goober";
+import { Location } from "../location/Location";
 
 export const Sidebar = () => {
   return (
