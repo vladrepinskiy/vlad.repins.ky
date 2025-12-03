@@ -46,7 +46,6 @@ const TopSection = styled("div")`
 `;
 
 const BottomSection = styled("div")`
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1rem;

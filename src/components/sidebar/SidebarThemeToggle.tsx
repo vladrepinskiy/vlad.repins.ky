@@ -1,16 +1,13 @@
 import { useTheme } from "@/hooks/useTheme";
 import { useToggleTheme } from "@/hooks/useToggleTheme";
 import { styled } from "goober";
+import { EmojiButton } from "../core/EmojiButton";
 
 export const SidebarThemeToggle = () => {
   const toggleTheme = useToggleTheme();
   const theme = useTheme();
 
-  return (
-    <SidebarThemeToggleButton onClick={toggleTheme}>
-      {theme.icon}
-    </SidebarThemeToggleButton>
-  );
+  return <EmojiButton onClick={toggleTheme}>{theme.icon}</EmojiButton>;
 };
 
 const SidebarThemeToggleButton = styled("button")`

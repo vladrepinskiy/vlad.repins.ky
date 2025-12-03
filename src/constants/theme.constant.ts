@@ -11,7 +11,7 @@ const FONT_SIZES = {
 
 export const LIGHT_THEME: Theme = {
   key: "light",
-  icon: "☀️",
+  icon: "🌞",
   palette: {
     bg: "#ffffff",
     text: "#1a1a1a",
