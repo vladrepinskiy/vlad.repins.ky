@@ -32,3 +32,7 @@ bun run lint:fix
 # Format everything with Prettier
 bun run format
 ```
+
+## Now Page Posts
+
+Images for now page posts must be imported in `src/constants/now.constant.ts` to be bundled by Bun. Add the import and include the filename in `NOW_IMAGE_MAP` to make it available for use in posts.
