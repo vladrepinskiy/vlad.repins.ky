@@ -1,3 +1,4 @@
+import { useImageViewer } from "../../hooks/useImageViewer";
 import { styled } from "goober";
 import { Body, Heading, Subtitle } from "../core/Typography";
 
@@ -14,6 +15,8 @@ export const NowPagePost = ({
   content,
   images = [],
 }: NowPagePostProps) => {
+  const { openViewer } = useImageViewer();
+
   return (
     <PostContainer>
       <PostHeader>
@@ -34,6 +37,7 @@ export const NowPagePost = ({
               key={index}
               src={image}
               alt={`${title} - Image ${index + 1}`}
+              onClick={() => openViewer(images, index)}
             />
           ))}
         </ImagesContainer>
@@ -74,4 +78,10 @@ const PostImage = styled("img")`
   flex: 1 1 calc(33.333% - 7px);
   min-width: 0;
   height: auto;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;

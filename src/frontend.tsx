@@ -1,7 +1,9 @@
-import { App } from "@/components/app/App";
-import { ThemeProvider } from "@/context/theme.provider";
-import "@/global.css";
-import { useTheme } from "@/hooks/useTheme";
+import { App } from "./components/app/App";
+import { ImageViewer } from "./components/core/ImageViewer";
+import { ImageViewerProvider } from "./context/imageviewer.provider";
+import { ThemeProvider } from "./context/theme.provider";
+import "./global.css";
+import { useTheme } from "./hooks/useTheme";
 import { setup } from "goober";
 import { shouldForwardProp } from "goober/should-forward-prop";
 import { StrictMode, createElement } from "react";
@@ -19,7 +21,10 @@ const elem = document.getElementById("root")!;
 const app = (
   <StrictMode>
     <ThemeProvider>
-      <App />
+      <ImageViewerProvider>
+        <App />
+        <ImageViewer />
+      </ImageViewerProvider>
     </ThemeProvider>
   </StrictMode>
 );
