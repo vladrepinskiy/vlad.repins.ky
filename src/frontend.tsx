@@ -8,6 +8,8 @@ import { setup } from "goober";
 import { shouldForwardProp } from "goober/should-forward-prop";
 import { StrictMode, createElement } from "react";
 import { createRoot } from "react-dom/client";
+import { Router } from "wouter";
+import { useHashLocation } from "wouter/use-hash-location";
 
 setup(
   createElement,
@@ -22,7 +24,9 @@ const app = (
   <StrictMode>
     <ThemeProvider>
       <ImageViewerProvider>
-        <App />
+        <Router hook={useHashLocation}>
+          <App />
+        </Router>
         <ImageViewer />
       </ImageViewerProvider>
     </ThemeProvider>
